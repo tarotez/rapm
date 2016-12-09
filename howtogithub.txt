@@ -124,26 +124,26 @@ git config --global alias.graph "log --graph --date-order --all --pretty=format:
 
 1. GitHub上でリモートリポジトリをフォークする。すなわちリモートリポジトリのページ（今回はhttps://github.com/tarotez/rapm）の右上にあるForkボタンをクリックする。
 
-2. 以下のコマンドでフォークされたリポジトリmyaccount/rapm.gitの内容をローカルにコピーし、好きな名前（今回はorigin）を付ける。ただしmyaccountには自分のアカウント名が入る。
+2. 以下のコマンドでフォークされたリポジトリMYACCOUNT/rapm.gitに別名（今回はfork）を付ける。ただしMYACCOUNTには自分のアカウント名が入る。
 
-git remote add origin git@github.com:myaccount/rapm.git
+git remote add fork git@github.com:MYACCOUNT/rapm.git
 
 3. 以下のようにローカルのfeatureブランチをリモート（origin）のbranch nameブランチにpushする。branchnameには自分のアカウント名など、好きな名前を付けてよい。
 
-git push -u origin feature:branchname
+git push -u fork feature:branchname
 
 あるいはローカルとリモートでブランチ名を共にfeatureという名前にする場合は以下でもよい。
 
-git push -u origin feature
+git push -u fork feature
 
-もしもローカルリポジトリよりリモートリポジトリが進んでいる場合、プッシュが行えないことがある。この場合はgit pullと打ち込み、ローカルリポジトリをリモートリポジトリに合わせた（更新した）上でgit push -u origin featureを行う。
+もしもローカルリポジトリよりリモートリポジトリが進んでいる場合、プッシュが行えないことがある。この場合はgit pullと打ち込み、ローカルリポジトリをリモートリポジトリに合わせた（更新した）上でgit push -u fork featureを行う。
 
 ----------------------------------
 【プルリクエストの作成】
 
 # リモートリポジトリの所有者や他の開発者に自分の更新内容を受け入れてもらう。
 
-1. ブラウザで https://github.com/myaccount/rapm にアクセスする。（my accountは自分のアカウント名）。
+1. ブラウザで https://github.com/MYACCOUNT/rapm にアクセスする。（MYACCOUNTは自分のアカウント名）。
 
 2. 右端のCompare & pull requestボタンをクリック。
 
@@ -162,9 +162,9 @@ git push -u origin feature
 
 # リモートリポジトリにコピーするためのローカルリポジトリを作成する。
 
-1. 好きな場所に作業ディレクトリを作る。たとえばmkdir MYPRO。（MYPROには好きな名前をつける）
+1. 好きな場所に作業ディレクトリを作る。たとえばmkdir MYPROJECT。（MYPROJECTには好きな名前をつける）
 
-2. cd MYPROで作業ディレクトリ内に移動。
+2. cd MYPROJECTで作業ディレクトリ内に移動。
 
 3. git initでローカルリポジトリ作成。ls -lartで.gitというディレクトリが作られていることを確認。
 
@@ -181,14 +181,13 @@ git push -u origin feature
 
 # 新しいリモートリポジトリの所有者となり、GitHub上で作成を行う。
 
-1. githubの自分のアカウントのページから右上の「+」をクリックし、New repositoryを選択。
+1. GitHubの自分のアカウントのページから右上の「+」をクリックし、New repositoryを選択。
 
 2. Repository nameを入力し、必要であればDescriptionに記入した上で一番下のCreate repositoryをクリック。
 
-3. 表示される以下のコードをターミナル上にコピペすれば自分のローカルリポジトリの内容がリモートリポジトリにコピーされる。
+3. 表示される以下のコードをターミナル上にコピペすれば自分のローカルリポジトリの内容がリモートリポジトリにコピーされる。ここではgit@github.com:MYACCOUNT/MYPROJECT.gitにoriginという別名を付け、そこにpushしている。
 
-git remote delete origin
-git remote add origin git@github.com:MYACCOUNT/MYPRO.git
+git remote add origin git@github.com:MYACCOUNT/MYPROJECT.git
 git push -u origin master
 
 ----------------------------------
